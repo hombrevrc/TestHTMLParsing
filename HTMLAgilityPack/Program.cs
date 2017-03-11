@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using HtmlAgilityPack;
 using ScrapySharp.Extensions;
 using ScrapySharp.Network;
@@ -14,6 +13,8 @@ namespace HTMLAgilityPack
             ScrapingBrowser browser = new ScrapingBrowser { AllowAutoRedirect = true, AllowMetaRedirect = true };
             WebPage pageResult = browser.NavigateToPage(new Uri("https://www.bing.com/search?q=Oli"));
             IEnumerable<HtmlNode> results = pageResult.Html.CssSelect(".b_algo");
+
+            ////*[contains(concat( " ", @class, " " ), concat( " ", "b_algo", " " ))]//h2//a
 
             foreach (HtmlNode node in results)
             {
